@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meeting people exactly where they are through hands-on restoration, letter writing, and purposeful community outreach.">
+<!-- Open Graph tags for clean link previews -->
+<meta property="og:title" content="Outreach & Restoration Ministry">
+<meta property="og:description" content="Out of the shadows and into community restoration.">
+<meta property="og:image" content="path-to-a-preview-banner.jpg">
+    <title>Outreach & Restoration Ministry</title>
+    <style>
+        /* --- 1. THE COMMUNITY COLOR VARIABLES --- */
+        :root {
+            --midnight: #0a141d;
+            --safety-orange: #ff6f20;
+            --bark: #3e2a18;
+            --slate: #e9ecef;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--slate);
+            color: var(--midnight);
+            line-height: 1.6;
+        }
+
+        /* --- 2. NAVIGATION --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(10, 20, 29, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 18px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+
+        .nav-btn.primary {
+            background: var(--safety-orange);
+            color: var(--white);
+            border: none;
+        }
+
+        .nav-btn.primary:hover {
+            opacity: 0.9;
+            background: var(--safety-orange);
+        }
+
+        /* --- 3. HERO SECTION (Atmospheric) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 20, 29, 0.5), rgba(10, 20, 29, 0.75)), 
+                        url('IMG_20260508_104722.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn.primary {
+            background: var(--safety-orange);
+            color: var(--white);
+        }
+
+        .cta-btn.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .cta-btn:hover { transform: translateY(-2px); }
+        .cta-btn.secondary:hover { background: rgba(255, 255, 255, 0.25); }
+
+        /* --- 4. THE STORY SECTION (Smooth Gradient Bridge) --- */
+        .story-section {
+            padding: 140px 8% 100px 8%;
+            background: linear-gradient(
+                to bottom, 
+                var(--midnight) 0%, 
+                #15222e 40%, 
+                var(--slate) 100%
+            );
+            color: var(--white);
+        }
+
+        .split-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-text { flex: 1; }
+        
+        .story-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .story-text p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+
+        .story-img-container {
+            flex: 1;
+            height: 450px;
+            background: url('IMG_20260508_104727.jpg') center/cover no-repeat;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* --- 5. THE LIVE ACTION GALLERY (Pinterest-Style Column Grid) --- */
+        .gallery-section {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: var(--slate);
+            color: var(--midnight);
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .photo-grid {
+            column-count: 3;
+            column-gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-photo {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-photo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        /* --- 6. INTERACTIVE SECTIONS --- */
+        .interactive-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 8% 120px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            background-color: var(--slate);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--midnight);
+            border-bottom: 3px solid var(--safety-orange);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .card-content p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        /* Form styling */
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            background: var(--midnight);
+            color: var(--white);
+            border: none;
+            padding: 14px 24px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: var(--safety-orange);
+        }
+
+        /* --- 7. FOOTER ANCHOR --- */
+        footer {
+            background-color: var(--midnight);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 40px 8%;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- 8. SAFETY EXIT SYSTEM --- */
+        #safety-exit {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #d9383a;
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
+        }
+
+        /* --- 9. RESPONSIVE DESIGN INTERSECTIONS --- */
+        @media (max-width: 900px) {
+            .split-layout { flex-direction: column; text-align: center; }
+            .story-img-container { width: 100%; height: 300px; }
+            .interactive-container { grid-template-columns: 1fr; }
+            .photo-grid { column-count: 2; }
+        }
+        @media (max-width: 600px) {
+            .photo-grid { column-count: 1; }
+        }
+    </style>
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if(element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Top Fixed Bar -->
+    <nav class="navbar">
+        <div class="logo">OUTREACH MINISTRIES</div>
+        <div class="nav-links">
+            <button class="nav-btn" onclick="scrollToSection('work-gallery')">Our Work</button>
+            <button class="nav-btn" onclick="scrollToSection('letter-writing')">Letter Ministry</button>
+            <button class="nav-btn primary" onclick="scrollToSection('join-form')">Join Us</button>
+        </div>
+    </nav>
+
+    <!-- Main Entry Point -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Out of the Shadows</h1>
+            <p>Meeting people exactly where they are through hands-on restoration and purposeful outreach.</p>
+            <div class="hero-buttons">
+                <button class="cta-btn primary" onclick="scrollToSection('work-gallery')">View Active Projects</button>
+                <button class="cta-btn secondary" onclick="scrollToSection('join-form')">Get Involved</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Context/Story Segment -->
+    <section class="story-section">
+        <div class="split-layout">
+            <div class="story-text">
+                <h2>Grounded in Purpose</h2>
+                <p>True change isn’t loud; it starts with deep roots, showing up consistently, and clearing away the things that block the path forward. Our outreach programs take action directly on the ground, creating meaningful visible impact alongside physical and spiritual support.</p>
+            </div>
+            <div class="story-img-container" title="Grounded texture representation"></div>
+        </div>
+    </section>
+
+    <!-- Visual Impact Area -->
+    <section class="gallery-section" id="work-gallery">
+        <h2>Ministry in Action</h2>
+        <div class="photo-grid">
+            <img src="trashPickupCharlesCenter.jpg" alt="Outreach crew working along the road" class="grid-photo">
+            <img src="IMG_20260505_125536 (1).jpg" alt="Volunteers preparing supplies" class="grid-photo">
+            <img src="IMG_20260505_125536 (4).jpg" alt="Team members serving together" class="grid-photo">
+            <img src="IMG_20260505_125536.jpg" alt="Outreach activities on site" class="grid-photo">
+            <img src="IMG_20260505_125536 (5).jpg" alt="Volunteers smiling during project" class="grid-photo">
+            <img src="IMG_20260505_125536 (6).jpg" alt="Group project completion" class="grid-photo">
+        </div>
+    </section>
+
+    <!-- Interactive Sections -->
+    <section class="interactive-container">
+        
+        <!-- Section: Letter Writing Form -->
+        <div class="info-card" id="letter-writing">
+            <div class="card-content">
+                <h3>Letter Writing Ministry</h3>
+                <p>Encouragement can change a life path. Our letter writing campaign connects compassionate voices with individuals seeking hope, guidance, and validation during difficult times of transition or isolation.</p>
+            </div>
+            
+            <form action="https://formspree.io/f/xvzjabqz" method="POST">
+                <input type="hidden" name="_subject" value="New Letter Writing Ministry Request">
+                <div class="form-group">
+                    <label for="letter-interest">Request Information on Writing Guidelines</label>
+                    <input type="email" name="email" id="letter-interest" required placeholder="Enter your email address">
+                </div>
+                <button type="submit" class="submit-btn">Receive Guidelines</button>
+            </form>
+        </div>
+
+        <!-- Section: Joining Form -->
+        <div class="info-card" id="join-form">
+            <div class="card-content">
+                <h3>Join the Outreach Crew</h3>
+                <p>Ready to make a physical, tangible difference on the streets and inside local communities? Drop your details below to get connected with the schedule.</p>
+            </div>
+
+            <form action="https://formspree.io/f/xnjkdbzz" method="POST">
+                <input type="hidden" name="_subject" value="New Volunteer Crew Application">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" name="name" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" required placeholder="john.doe@example.com">
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </div>
+                </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Outreach & Restoration Ministry. All rights reserved.   
+    </footer>
+</body>
+</html>
